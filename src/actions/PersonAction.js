@@ -33,3 +33,15 @@ export const fetchPerson = () => {
         });
     }
 }
+
+export const fetchModalData = (id) => {
+    return (dispatch,getState) => {
+        axios.get('http://localhost:3001/api/id/' + id)
+        .then((res) => {
+            dispatch({
+                type : 'FETCH_MODAL_DATA',
+                payload : res.data
+            })
+        })
+    }
+}

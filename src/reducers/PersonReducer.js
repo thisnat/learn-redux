@@ -1,5 +1,6 @@
 const initialState = {
     personData : {},
+    modalData : {},
     isFetching : false,
     isError : false
 }
@@ -8,22 +9,21 @@ const PersonReducer = (state = initialState,action) => {
     switch(action.type) {
         case 'FETCHING_PERSON' :
             return Object.assign({},state,{
-                personData : {},
                 isFetching : true,
-                isError : false
             })
         case 'FETCHED_PERSON' :
             return Object.assign({},state,{
                 personData : action.payload,
                 isFetching : false,
-                isError : false
             })
         case 'FETCH_ERROR_PERSON' :
             return Object.assign({},state,{
-                personData : {},
-                isFetching : false,
                 isError : true
-            })       
+            })
+        case 'FETCH_MODAL_DATA' :
+            return Object.assign({},state,{
+                modalData : action.payload
+            })           
         default :
             return state;    
     }

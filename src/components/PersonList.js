@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
 
 import { connect } from 'react-redux';
-import { fetchPerson } from '../actions/PersonAction';
+import { fetchPerson,fetchModalData } from '../actions/PersonAction';
 
 import PersonBox from '../components/PersonBox';
 import TestModal from '../components/TestModal';
@@ -13,7 +12,6 @@ class PersonList extends Component {
 
         this.state = {
             show : false,
-            modalData : {}
         }
     }
 
@@ -24,18 +22,17 @@ class PersonList extends Component {
     render() {
         const { data } = this.props;
 
+        const doFetchModal = async (id) => {
+            await this.props.dispatch(fetchModalData(id));
+
+            handleShow();
+        }
+
         const handleBtn = (e) => {
             e.preventDefault();
     
             const id = e.target.getAttribute('personid');
-            Axios.get('http://localhost:3001/api/id/' + id)
-            .then((res) => {
-                this.setState({
-                    modalData : res.data
-                })
-
-                handleShow();
-            })
+            doFetchModal(id);
         }
 
         const handleShow = () => {
@@ -67,7 +64,6 @@ class PersonList extends Component {
                 <table className="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>id</th>
                             <th>name</th>
                             <th>username</th>
                             <th>*</th>
@@ -83,7 +79,7 @@ class PersonList extends Component {
                         }
                     </tbody>
                 </table>
-                <TestModal show = {this.state.show} handleClose={handleClose} modalData={this.state.modalData}/>
+                <TestModal show = {this.state.show} handleClose={handleClose} modalData={data.modalData}/>
             </div>
         );
     }

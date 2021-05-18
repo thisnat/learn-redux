@@ -9,15 +9,13 @@ const TestModal = ({ handleClose,show,modalData }) => {
                     <Modal.Title>Person detail</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>id : {modalData.name}</p>
+                    <p>id : {modalData._id}</p>
+                    <p>name : {modalData.name}</p>
                     <p>username : {modalData.username}</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
                     </Button>
                 </Modal.Footer>
             </Modal>
