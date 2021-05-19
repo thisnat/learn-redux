@@ -7,14 +7,16 @@ import MyModal from '../components/MyModal'
 
 const Playground = (props) => {
     
+    const { dispatch } = props;
+
     useEffect(() => {
-        props.dispatch(fetchPerson());
-    },[])
+        dispatch(fetchPerson());
+    },[dispatch])
 
     const handleModalBtn = (e) => {
         e.preventDefault();
         const id = e.target.getAttribute('personid');
-        props.dispatch(fetchModalData(id))
+        dispatch(fetchModalData(id))
     }
 
     return (
