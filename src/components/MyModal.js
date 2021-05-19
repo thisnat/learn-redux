@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyModal = ({title,content}) => {
+const MyModal = ({title,content,id}) => {
     return (
         <div>
             <div className="modal fade" id="myModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -15,6 +15,7 @@ const MyModal = ({title,content}) => {
                         <div className="modal-body">
                             <h4>{title}</h4>
                             <p>{content}</p>
+                            <p>id : {id}</p>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>

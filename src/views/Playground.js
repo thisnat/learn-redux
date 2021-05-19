@@ -1,16 +1,58 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
+import { connect } from 'react-redux';
+
+import { fetchPerson,fetchModalData } from '../actions/PersonAction';
 
 import MyModal from '../components/MyModal'
 
-const Playground = () => {
+const Playground = (props) => {
+    
+    useEffect(() => {
+        props.dispatch(fetchPerson());
+    },[])
+
+    const handleModalBtn = (e) => {
+        e.preventDefault();
+        const id = e.target.getAttribute('personid');
+        props.dispatch(fetchModalData(id))
+    }
 
     return (
         <div>
             <h1>playground</h1>
-            <button className="btn btn-primary" data-toggle="modal" data-target="#myModal">modal</button>
-            <MyModal title="3657zzzk" content="no lorem here!"/>
+
+            <table className="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>username</th>
+                            <th>*</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            Object.keys(props.data.personData).length > 0
+                            ? props.data.personData.map((data,index) => (
+                                <tr key={index}>
+                                    <td>{data.name}</td>
+                                    <td>{data.username}</td>
+                                    <td><button className="btn btn-primary" personid={data._id} onClick={handleModalBtn} data-toggle="modal" data-target="#myModal">modal</button></td>
+                                </tr>
+                            ))
+                            : null
+                        }
+                    </tbody>
+                </table>
+
+            <MyModal title={props.data.modalData.name} content={props.data.modalData.username} id={props.data.modalData._id}/>
         </div>
     );
 };
 
-export default Playground; <h1>playground</h1>
+const mapStateToProps = (state) => {
+    return {
+        data : state
+    }
+}
+
+export default connect(mapStateToProps)(Playground);
