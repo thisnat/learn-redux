@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchPerson,fetchModalData } from '../actions/PersonAction';
 
 import MyModal from '../components/MyModal'
+import $ from 'jquery'
 
 const Playground = (props) => {
     
@@ -15,8 +16,11 @@ const Playground = (props) => {
 
     const handleModalBtn = (e) => {
         e.preventDefault();
+
         const id = e.target.getAttribute('personid');
         dispatch(fetchModalData(id))
+
+        $('#myModal').modal('show')
     }
 
     return (
@@ -38,7 +42,7 @@ const Playground = (props) => {
                                 <tr key={index}>
                                     <td>{data.name}</td>
                                     <td>{data.username}</td>
-                                    <td><button className="btn btn-primary" personid={data._id} onClick={handleModalBtn} data-toggle="modal" data-target="#myModal">modal</button></td>
+                                    <td><button className="btn btn-primary" personid={data._id} onClick={handleModalBtn}>modal</button></td>
                                 </tr>
                             ))
                             : null
