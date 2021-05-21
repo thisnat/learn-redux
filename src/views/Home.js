@@ -6,9 +6,11 @@ import PersonAdd from '../components/PersonAdd'
 const Home = () => {
     return (
         <div>
-            <h1>homeq23po4</h1>
-            <PersonAdd/>
-            <PersonList/>
+            <div className="container">
+                <p className="display-4">fetch using redux-thunk !?!!?!</p>
+                <PersonAdd/>
+                <PersonList/>
+            </div>
         </div>
     );
 };
