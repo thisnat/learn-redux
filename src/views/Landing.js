@@ -14,7 +14,7 @@ const Landing = () => {
                     <p className="lead">learn redux learn redux learn redux learn redux learn redux learn redux</p>
                     <hr className="my-4"/>
                     <p>learn redux learn redux learn redux learn redux learn redux learn redux learn redux learn redux learn redux</p>
-                    <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                    <a className="btn btn-primary btn-lg" href="/lol" role="button">Learn more</a>
                 </div>
 
                 <div className="mt-3">

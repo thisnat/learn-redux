@@ -5,28 +5,30 @@ const Navbar = () => {
         <div>
 
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">yeah its a navbar!!!!</a>
+                <a className="navbar-brand" href="/lol">yeah its a navbar!!!!</a>
 
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="#">test1</a>
+                            <a className="nav-link" href="/lol">test1</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">test2</a>
+                            <a className="nav-link" href="/lol">test2</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">test3</a>
+                            <a className="nav-link" href="/lol">test3</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">test4</a>
+                            <a className="nav-link" href="/lol">test4</a>
                         </li>
                     </ul>
                 </div>
 
                 <form className="form-inline">
                     <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#myModal">Search</button>
+                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#myModal" onClick={(e) => {
+                        e.preventDefault();
+                    }}>Search</button>
                 </form>
 
             </nav>

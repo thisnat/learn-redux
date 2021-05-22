@@ -14,7 +14,11 @@ const MyModal = ({title,content,id}) => {
                         </div>
                         <div className="modal-body">
                             <h4>{title}</h4>
-                            <p>{content}</p>
+                            {
+                                content
+                                ? <p>{content}</p>
+                                : <p style={{fontStyle : "italic"}}>no username</p>
+                            }
                             <p>id : {id}</p>
                         </div>
                         <div className="modal-footer">
