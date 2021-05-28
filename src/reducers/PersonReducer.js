@@ -18,7 +18,8 @@ const PersonReducer = (state = initialState,action) => {
             })
         case 'FETCH_ERROR_PERSON' :
             return Object.assign({},state,{
-                isError : true
+                isError : true,
+                isFetching : false
             })
         case 'FETCH_MODAL_DATA' :
             return Object.assign({},state,{
