@@ -52,16 +52,27 @@ class PersonList extends Component {
                 <h2>person list</h2>
                 {
                     data.isFetching
-                        ? <h1>loading...</h1>
+                        ? <div className="container-fluid">
+                            <div className="row justify-content-center">
+                                <div className="spinner-border" role="status">
+                                    <span className="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <div className="row justify-content-center">
+                                <strong>loading...</strong>
+                            </div>
+                         </div>
                         : null
                 }
 
                 {
                     data.isError
-                        ? <h1>error cant connect db</h1>
+                        ? <div class="alert alert-primary" role="alert">
+                            error cant connect db 🥴
+                          </div>
                         : null
                 }
-                <table className="table table-striped table-bordered">
+                <table className="mt-3 table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>name</th>

@@ -46,7 +46,11 @@ const Playground = (props) => {
                                         <td><button className="btn btn-primary" personid={data._id} onClick={handleModalBtn}>modal</button></td>
                                     </tr>
                                 ))
-                                : <p style={{fontSize : 64}}>run your server lol</p>
+                                : <tr>
+                                    <td>run</td>
+                                    <td>your</td>
+                                    <td>server lol</td>
+                                 </tr>
                             }
                         </tbody>
                     </table>
