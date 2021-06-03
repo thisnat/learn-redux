@@ -12,6 +12,7 @@ const App = () => {
           <Route path="/play" component={Views.Playground} />
           <Route path="/home" component={Views.Home} />
           <Route path="/cookie" component={Views.Cookie} />
+          <Route path="/whiteroom" component={Views.Creative} />
           <Route path="*" component={Views.Oops} />
         </Switch>
       </Router>

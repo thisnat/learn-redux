@@ -23,6 +23,7 @@ const Landing = () => {
                         <li><a href="/home">redux-thunk fetch and react-bootstrap</a></li>
                         <li><a href="/play">my playground (experimental things)</a></li>
                         <li><a href="/cookie">cookie,localstorage and session things</a></li>
+                        <li><a href="/whiteroom">shard-react shenanigans</a></li>
                     </ul>
                 </div>
             </div>
